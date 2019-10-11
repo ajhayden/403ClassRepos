@@ -15,6 +15,9 @@ namespace DataStructuresGitHubSolo.Controllers
         //Creates a stopwatch
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
 
+        //varible for initializing entry number
+        static int stackNum = 0;
+
         // GET: Stack
         public ActionResult Index()
         {
@@ -25,17 +28,18 @@ namespace DataStructuresGitHubSolo.Controllers
         //This adds one entry
         public ActionResult AddOne()
         {
-            myStack.Push("New Entry: " + (myStack.Count + 1));
+            myStack.Push("New Entry: " + (++stackNum));
             return View("Index");
         }
 
         //This adds 2000 entries
         public ActionResult AddHugeList()
         {
+            stackNum = 0;
             myStack.Clear();
             for (int iCount = 0; iCount < 2000; iCount++)
             {
-                myStack.Push("New Entry: " + (myStack.Count + 1));
+                myStack.Push("New Entry: " + (++stackNum));
             }
             return View("Index");
         }
@@ -43,6 +47,9 @@ namespace DataStructuresGitHubSolo.Controllers
         //This displays all entries
         public ActionResult Display()
         {
+
+
+
             if (myStack.Count() == 0)
             {
                 ViewBag.Error = "There are no entries to display";
@@ -86,6 +93,7 @@ namespace DataStructuresGitHubSolo.Controllers
         //This deletes all entries
         public ActionResult Clear()
         {
+            stackNum = 0;
             myStack.Clear();
             ViewBag.MyStack = null;
             return View("Index");
