@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="~/Content/myStyles.css">
+</head>
+<bodys>
+    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+        <h3 class="w3-bar-item">Stack</h3>
+        <a href="@Url.Action("AddOne", "Stack")" class="w3-bar-item w3-button">Add One Time to Stack</a>
+        <a href="@Url.Action("AddHugeList", "Stack")" class="w3-bar-item w3-button">Add Huge List of Items to Stack</a>
+        <a href="@Url.Action("Display", "Stack")" class="w3-bar-item w3-button">Display Stack</a>
+        <a href="@Url.Action("Delete", "Stack")" class="w3-bar-item w3-button">Delete from Stack</a>
+        <a href="@Url.Action("Clear", "Stack")" class="w3-bar-item w3-button">Clear Stack</a>
+        <a href="@Url.Action("Search", "Stack")" class="w3-bar-item w3-button">Search Stack</a>
+        <a href="@Url.Action("ReturnHome", "Stack")" class="w3-bar-item w3-button">Return to Home</a>
+    </div>
+    <div class="center">
+        @{
+            //Displays the entries
+            if (ViewBag.MyStack != null)
+            {
+                foreach (var item in ViewBag.myStack)
+                {
+                    <p>@item</p>
+                }
+            }
+
+            //Displays errors depending on the situation
+            if (ViewBag.Error != null)
+            {
+                <p>@ViewBag.Error</p>
+            }
+
+            //Displays if entry 9 was found and also time elapsed
+            @Html.Raw((string)ViewBag.SearchInfo)
+            <br />
+            @Html.Raw((string)ViewBag.StopWatch)
+        }
+
+        
+    </div>
+</bodys>

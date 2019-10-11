@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="~/Content/myStyles.css">
+</head>
+<body>
+    <br />
+    <!--The home page with 4 different links-->
+    <div class="w3-bar w3-border w3-black w3-round">
+            <a href="@Url.Action("Index", "Stack")" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white">Stack</a>
+            <a href="@Url.Action("Index", "Queue")" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white">Queue</a>
+            <a href="@Url.Action("Index", "Dictionary")" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white">Dictionary</a>
+            <a href="@Url.Action("Exit", "Home")" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white">Exit</a>
+     </div>
+</body>
